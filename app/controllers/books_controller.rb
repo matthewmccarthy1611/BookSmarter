@@ -18,7 +18,7 @@ class BooksController < ApplicationController
       def show
         if @book = Book.find_by_id(params[:id])
             @book
-            binding.pry
+            # binding.pry
         else
             flash[:alert] = "Book does not exist"
             redirect_to books_path
@@ -32,7 +32,7 @@ class BooksController < ApplicationController
       end
     
       def create
-        @book = Book.new(book_params)
+        @book = Book.find_or_initialize_by(book_params)
         if @book.save
           redirect_to books_path, notice: "#{@book.title} was created."
         else
