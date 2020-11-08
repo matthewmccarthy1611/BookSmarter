@@ -18,6 +18,7 @@ class BooksController < ApplicationController
       def show
         if @book = Book.find_by_id(params[:id])
             @book
+            binding.pry
         else
             flash[:alert] = "Book does not exist"
             redirect_to books_path

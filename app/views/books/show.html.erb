@@ -2,3 +2,14 @@
 <h2>By <%= @book.author %></h2>
 <p><%= @book.page_count %> pages</p>
 <p><%= @book.description %></p>
+
+
+<h3>Comments</h3>
+
+<ul>
+<% @book.comments.each do |c| %>
+    <li>
+    <%= c.user.name %> says <%= c.content %>
+    </li>
+<% end %>
+</ul>
