@@ -1,0 +1,5 @@
+<h1><%= @book.user.name %>'s Books</h1>
+
+<% @books.each do |book| %>
+    <%= link_to book.title, book_path %> | <%= book.author %> | <%= book.page_count %>
+<% end %>
