@@ -1,13 +1,20 @@
 class BooksController < ApplicationController
+    before_action :authenticate_user!
+
     def index
-        @books = Book.all
+        if params[:user_id] && @user = User.find_by_id(params[:user_id])
+            @books = @user.books
+        else
+            flash[:alert] = "That user does not exist." if params[:user_id]
+            @books = Book.all
+        end
       end
     
       def new
       end
     
       def show
-        @book = Book.find_by(id: params[:id])
+        @book = Book.find_by(id: params[:user_id])
       end
     
       def edit
