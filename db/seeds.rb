@@ -11,10 +11,10 @@
 # # Genre.create(name: "Economics")
 # # Genre.create(name: "Fiction")
 
-# User.create(email: "test1@examples.com", password: "abcd1234", name: "Bill")
-# User.create(email: "test2@examples.com", password: "abcd1234", name: "Fred")
-# User.create(email: "test3@examples.com", password: "abcd1234", name: "Linda")
-# User.create(email: "test4@examples.com", password: "abcd1234", name: "Sally")
+User.create(email: "test1@examples.com", password: "abcd1234", name: "Bill")
+User.create(email: "test2@examples.com", password: "abcd1234", name: "Fred")
+User.create(email: "test3@examples.com", password: "abcd1234", name: "Linda")
+User.create(email: "test4@examples.com", password: "abcd1234", name: "Sally")
 
 # Book.create(title: "Basic Economics", author: "Thomas Sowell", pages: 600)
 # Book.create(title: "Alexander Hamilton", author: "Ron Chernow", pages: 570)
