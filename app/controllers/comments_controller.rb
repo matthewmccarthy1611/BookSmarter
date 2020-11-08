@@ -5,9 +5,10 @@ class CommentsController < ApplicationController
     end
 
     def new
-        if params[:book_id] && @book = Book.find_by_id(params[:id])
+        if params[:book_id] && @book = Book.find_by_id(params[:book_id])
             # binding.pry
             @comment = @book.comments.build
+            binding.pry
         else
             @error = "That book doesn't exist" if params[:book_id]
             @comment = Comment.new
@@ -21,9 +22,8 @@ class CommentsController < ApplicationController
     end
 
     def create
-        @comment = Comment.new(comment_params)
-        @comment.user = current_user
-        # binding.pry
+        @comment = current_user.comments.build(comment_params)
+        binding.pry
         if @comment.save
           redirect_to book_path(@comment.book), notice: "New comment was created."
         else

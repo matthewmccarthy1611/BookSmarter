@@ -12,7 +12,7 @@ class BooksController < ApplicationController
       end
     
       def new
-        @book = Book.new
+        @book = Book.find_or_initialize_by(book_params)
       end
     
       def show
