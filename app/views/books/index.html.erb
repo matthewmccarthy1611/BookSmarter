@@ -1,9 +1,6 @@
-<% if @books.where(params[:user_id]) %>
-    <h1><%= @books.user.name %>'s Books</h1>
-<% else %>
-    <h1>All Books</h1>
-<% end %>
+
+<h1>All Books</h1>
 
 <% @books.each do |book| %>
-    <%= link_to book.title, book_path %> | <%= book.author %> | <%= book.page_count %>
+    <li><%= link_to book.title, book_path(book) %> | <%= book.author %> | <%= book.page_count %></li>
 <% end %>
