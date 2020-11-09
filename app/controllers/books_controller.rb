@@ -41,11 +41,12 @@ class BooksController < ApplicationController
             render :new
         end
       end
-    
+
       def destroy
+        @book = Book.find_by_id(params[:id])
         @book.destroy
-        redirect_to books_path, flash[:alert] = "#{@book.title} was deleted."
-      end
+        redirect_to books_path, notice: "Book was deleted."
+        end
     
       private
     

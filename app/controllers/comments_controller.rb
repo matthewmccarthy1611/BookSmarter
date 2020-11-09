@@ -15,12 +15,6 @@ class CommentsController < ApplicationController
         end
     end
 
-    def show
-    end
-
-    def update
-    end
-
     def create
         @comment = current_user.comments.build(comment_params)
         # binding.pry
@@ -34,8 +28,9 @@ class CommentsController < ApplicationController
     end
 
     def destroy
+        @comment = Comment.find_by_id(params[:id])
         @comment.destroy
-        redirect_to books_path, notice: "#{@comment.title} was deleted."
+        redirect_to books_path, notice: "Comment was deleted."
     end
 
     private
