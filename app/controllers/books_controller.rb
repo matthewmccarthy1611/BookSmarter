@@ -8,7 +8,7 @@ class BooksController < ApplicationController
             # binding.pry
         else
             flash[:alert] = "That user does not exist." if params[:user_id]
-            @books = Book.all
+            @books = Book.all.alpha
         end
       end
     

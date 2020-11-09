@@ -6,6 +6,6 @@
     <p>nothing here</p>
 <% else %>
     <% @books.uniq.each do |book| %>
-        <li><%= link_to book.title, book_path(book) %> | <%= book.author %> | <%= book.page_count %></li>
+        <li><%= link_to book.title, book_path(book) %> | <%= book.author %> | <%= book.page_count %> pages | <%= book.comment_count %> comments</li>
     <% end %>
 <% end %>
