@@ -28,6 +28,8 @@ gem 'pry'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem 'figaro'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
