@@ -1,7 +1,7 @@
 
-# OSRS Board
+# BookSmarter
 
-OSRS Board is a database for creating Old School Runescape characters.
+BookSmarter is a database for users to create books and comment on them.
 
 ## Installation
 
