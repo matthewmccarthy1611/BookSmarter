@@ -5,10 +5,9 @@ class BooksController < ApplicationController
     def index
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
             @books = @user.books
-            # binding.pry
         else
             flash[:alert] = "That user does not exist." if params[:user_id]
-            @books = Book.all.alpha
+            @books = Book.all
         end
       end
     
@@ -19,7 +18,6 @@ class BooksController < ApplicationController
       def show
         if @book = Book.find_by_id(params[:id])
             @book
-            # binding.pry
         else
             flash[:alert] = "Book does not exist"
             redirect_to books_path
@@ -34,7 +32,6 @@ class BooksController < ApplicationController
     
       def create
         @book = Book.new(book_params)
-        # binding.pry
         if @book.save
             flash[:alert] = "#{@book.title} was created."
             redirect_to books_path

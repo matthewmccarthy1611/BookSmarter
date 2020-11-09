@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create, :index]
   end
 
-  get '/users/most_books'
+  get '/books/with_comments'
   
 end

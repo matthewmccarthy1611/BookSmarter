@@ -10,6 +10,7 @@ class Book < ApplicationRecord
     has_many :users, :through => :comments
 
     scope :alpha, -> { order(:title) }
+    scope :with_comments, -> { joins(:comments).group(:book_id).order('count(:books_id)') }
 
     def comment_count
         self.comments.count
