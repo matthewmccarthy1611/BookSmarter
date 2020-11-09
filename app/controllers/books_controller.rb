@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
     before_action :authenticate_user!
+    # helper_method :book_exist?
 
     def index
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
@@ -12,7 +13,7 @@ class BooksController < ApplicationController
       end
     
       def new
-        @book = Book.find_or_initialize_by(book_params)
+        @book = Book.new
       end
     
       def show
@@ -26,18 +27,27 @@ class BooksController < ApplicationController
       end
     
       def edit
+        @book = Book.find_by_id(params[:id])
       end
     
       def update
+        @book = Book.find_by_id(params[:id])
+        @book.update(book_params)
+        redirect_to book_path(@book)
       end
     
       def create
-        @book = Book.find_or_initialize_by(book_params)
-        if @book.save
-          redirect_to books_path, notice: "#{@book.title} was created."
+        @book = Book.new(book_params)
+        if @book
+            flash[:alert] = "Error: #{@book.title} already exists."
+            render 'new'
         else
-            @error 
-          render 'new'
+            if @book.save
+                redirect_to books_path, notice: "#{@book.title} was created."
+            else
+                @error 
+                render 'new'
+            end
         end
       end
     
