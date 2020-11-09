@@ -27,33 +27,24 @@ class BooksController < ApplicationController
       end
     
       def edit
-        @book = Book.find_by_id(params[:id])
       end
     
       def update
-        @book = Book.find_by_id(params[:id])
-        @book.update(book_params)
-        redirect_to book_path(@book)
       end
     
       def create
         @book = Book.new(book_params)
-        if @book
-            flash[:alert] = "Error: #{@book.title} already exists."
-            render 'new'
+        # binding.pry
+        if @book.save
+            redirect_to books_path, flash[:alert] = "#{@book.title} was created."
         else
-            if @book.save
-                redirect_to books_path, notice: "#{@book.title} was created."
-            else
-                @error 
-                render 'new'
-            end
+            render :new
         end
       end
     
       def destroy
         @book.destroy
-        redirect_to books_path, notice: "#{@book.title} was deleted."
+        redirect_to books_path, flash[:alert] = "#{@book.title} was deleted."
       end
     
       private
