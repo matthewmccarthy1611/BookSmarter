@@ -1,24 +1,21 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# OSRS Board
 
-Things you may want to cover:
+OSRS Board is a database for creating Old School Runescape characters.
 
-* Ruby version
+## Installation
 
-* System dependencies
+- fork and clone this repo.
+- cd the directory from the terminal
+- in the terminal run bundle install to install all required gems
+- run shotgun to open the app
+- open the local host in your web browser
+- start by hitting sign-up button
 
-* Configuration
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-* Database creation
+Please make sure to update tests as appropriate.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
