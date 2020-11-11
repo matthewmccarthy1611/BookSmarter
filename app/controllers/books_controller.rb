@@ -1,6 +1,5 @@
 class BooksController < ApplicationController
     before_action :authenticate_user!
-    # helper_method :book_exist?
 
     def index
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
@@ -30,6 +29,11 @@ class BooksController < ApplicationController
     
       def update
         @book = Book.find_by_id(params[:id])
+        @book.assign_attributes(book_params)
+        if @book.save
+          flash[:alert] = "Book updated"
+          redirect_to book_path(@book)
+        end
       end
     
       def create

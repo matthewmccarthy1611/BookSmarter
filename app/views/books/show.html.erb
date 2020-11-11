@@ -3,6 +3,8 @@
 <p><%= @book.page_count %> pages</p>
 <p><%= @book.description %></p>
 
+<%= link_to "Edit Book", edit_book_path(@book) %>
+
 
 <h3>Comments</h3>
 <%= link_to "Add New Comment", new_book_comment_path(@book) %>
