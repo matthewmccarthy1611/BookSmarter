@@ -3,3 +3,5 @@
 <h3>You are now editing <%= @book.title %></h3>
 
 <%= render 'form' %>
+
+<%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %>

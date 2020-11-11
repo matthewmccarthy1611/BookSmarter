@@ -52,7 +52,7 @@ class BooksController < ApplicationController
         @book = Book.find_by_id(params[:id])
         @book.destroy
         redirect_to books_path, notice: "Book was deleted."
-        end
+      end
     
       private
     
