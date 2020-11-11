@@ -33,6 +33,8 @@ class BooksController < ApplicationController
         if @book.save
           flash[:alert] = "Book updated"
           redirect_to book_path(@book)
+        else
+          render :edit
         end
       end
     
