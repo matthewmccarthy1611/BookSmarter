@@ -4,7 +4,7 @@ class Book < ApplicationRecord
     validates :author, presence: true
     validates :page_count, presence: true
     validates :page_count, numericality: true
-    validates :description, length: {maximum: 100}
+    validates :description, length: {minimum: 10}
 
     has_many :comments
     has_many :users, :through => :comments
