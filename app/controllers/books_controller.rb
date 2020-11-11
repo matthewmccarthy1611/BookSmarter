@@ -34,7 +34,7 @@ class BooksController < ApplicationController
         @book = Book.new(book_params)
         if @book.save
             flash[:alert] = "#{@book.title} was created."
-            redirect_to books_path
+            redirect_to book_path(@book)
         else
             render :new
         end
