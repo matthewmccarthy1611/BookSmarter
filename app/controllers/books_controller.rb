@@ -53,6 +53,10 @@ class BooksController < ApplicationController
         @book.destroy
         redirect_to books_path, notice: "Book was deleted."
       end
+
+      def with_comments
+        @books = Book.all.with_comments
+      end
     
       private
     
