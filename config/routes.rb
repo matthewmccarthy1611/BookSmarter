@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create, :index]
   end
 
-  get '/books/with_comments', to: 'books#with_comments'
+  get '/books/with_comments', :controller => 'books', :action => 'with_comments'
   
 end

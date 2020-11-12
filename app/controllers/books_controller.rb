@@ -56,6 +56,7 @@ class BooksController < ApplicationController
 
       def with_comments
         @books = Book.all.with_comments
+        render :index
       end
     
       private
