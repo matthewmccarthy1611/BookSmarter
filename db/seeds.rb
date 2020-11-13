@@ -18,7 +18,7 @@ User.create(email: "test4@examples.com", password: "abcd1234", name: "Sally")
 
 Book.create(title: "Basic Economics", author: "Thomas Sowell", page_count: 600)
 Book.create(title: "Alexander Hamilton", author: "Ron Chernow", page_count: 570)
-# Book.create(title: "The New Right", author: "Michael Malice", page_count: 280)
+Book.create(title: "The New Right", author: "Michael Malice", page_count: 280)
 Book.create(title: "Atomic Habits", author: "James Clear", page_count: 250)
 Book.create(title: "Starting Strength", author: "Mark Rippetoe", page_count: 600)
 Book.create(title: "The Fountainhead", author: "Ayn Rand", page_count: 800)
