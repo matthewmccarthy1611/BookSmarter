@@ -15,7 +15,7 @@
 <ul>
 <% @book.comments.each do |c| %>
     <li>
-    <%= c.user.name %> says <%= c.content %>
+    <%= link_to c.user.name, user_books_path(c.user) %> says <%= c.content %>
     </li>
 <% end %>
 </ul>
