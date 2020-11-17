@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   resources :books do
     resources :comments, only: [:new, :create, :index]
   end
+
+  get '/search' => 'books#search', :as => 'search_page'
   
 end

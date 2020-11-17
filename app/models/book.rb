@@ -14,4 +14,8 @@ class Book < ApplicationRecord
     def comment_count
         self.comments.count
     end
+
+    def self.search(search)
+        where("LOWER(title) LIKE :search", search: "%#{search.downcase}%")
+    end
 end

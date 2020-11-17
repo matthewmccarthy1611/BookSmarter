@@ -2,11 +2,16 @@ class BooksController < ApplicationController
     before_action :authenticate_user!
 
     def index
+      # binding.pry
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
             @books = @user.books
         else
             flash[:alert] = "That user does not exist." if params[:user_id]
             @books = Book.all
+        end
+        if params[:search]
+          @search = params[:search]
+          @books = Book.search(@search)
         end
       end
     
@@ -55,13 +60,13 @@ class BooksController < ApplicationController
       end
 
       def with_comments
-        @books = Book.all.with_comments
+        @books = Book.with_comments
         render :index
       end
     
       private
     
       def book_params
-        params.require(:book).permit(:title, :author, :description, :page_count, :user_id)
+        params.require(:book).permit(:title, :author, :description, :page_count, :user_id, :q)
       end
 end

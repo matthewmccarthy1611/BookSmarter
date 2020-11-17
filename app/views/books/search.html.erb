@@ -1,0 +1,7 @@
+<h1>Search Results</h1>
+
+<% @books.uniq.each do |book| %>
+    <li>
+    <%= link_to book.title, book_path(book) %> | <%= book.author %> | <%= book.page_count %> pages | <%= book.comment_count %> comments
+    </li>
+<% end %>

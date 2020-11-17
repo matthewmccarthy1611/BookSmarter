@@ -22,7 +22,6 @@ class CommentsController < ApplicationController
             flash[:alert] = "New comment was added!"
           redirect_to book_path(@comment.book)
         else
-            @error 
           render :new
         end
     end
